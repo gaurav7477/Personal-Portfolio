@@ -5,18 +5,24 @@ import Home from "./Pages/Home/Home";
 import Project from "./Pages/Projects/project";
 import About from "./Pages/Home/About";
 import Contact from "./Pages/Contact/Contact";
+import Footer from "./Pages/Home/Footer.jsx";
 const App = () => {
   return (
+    <div><Navbar />
     <Router>
-      <Navbar />
+      
       <Routes>
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} index />
+        <Route path="/home" element={<Home />} />
         <Route path="/projects" element={<Project />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
       </Routes>
+      
     </Router>
+    <Footer/>
+    </div>
   );
 };
 

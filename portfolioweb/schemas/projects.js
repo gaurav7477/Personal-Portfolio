@@ -50,5 +50,12 @@ export default {
       type: 'url',
       description: 'Link to the project',
     },
+    {
+      name:'isLatest',
+      title:'Type',
+      type:'string',
+      description:'Type of the project',
+
+    }
   ],
 };

@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import client from "../../client";
-import { Container, Typography } from "@mui/material";
+import { Avatar, Container, Typography } from "@mui/material";
 import SearchBar from "./SearchBar.jsx";
 import ProjectDisplay from "./ProjectDisplay.jsx";
+import ProjectOtherDisplay from "./ProjectOtherDisplay.jsx";
 import ProjectDialog from "./ProjectDialog";
+import { Box } from "@mui/system";
+import bg from "../../images/cover.jpeg";
+import profile from "../../images/abt.jpg";
+import SkillCard from "./skillCard.jsx";
 
 const MultiActionAreaCard = () => {
   const [latestProjects, setLatestProjects] = useState([]);
@@ -11,7 +16,6 @@ const MultiActionAreaCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
 
   const handleClickOpen = (project) => {
     setSelectedProject(project);
@@ -24,7 +28,7 @@ const MultiActionAreaCard = () => {
   };
 
   useEffect(() => {
-    const query = `*[(_type == "projects" || _type == "otherProjects")]{
+    const query = `*[_type == "projects"]{
       title,
       smallDescription,
       fullDescription,
@@ -32,18 +36,23 @@ const MultiActionAreaCard = () => {
       "image": image.asset->url,
       GithubLink,
       ProjectLink,
-      _type
+      isLatest,
+      _type,
     }`;
 
     client
       .fetch(query)
       .then((data) => {
-        const projectsData = data.filter((item) => item._type === "projects");
+        console.log("Fetched data:", data);
+
+        const latestProjectsData = data.filter(
+          (project) => project.isLatest === "Latest_Project"
+        );
         const otherProjectsData = data.filter(
-          (item) => item._type === "otherProjects"
+          (project) => project.isLatest === "Other_Project"
         );
 
-        setLatestProjects(projectsData);
+        setLatestProjects(latestProjectsData);
         setOtherProjects(otherProjectsData);
       })
       .catch((error) => {
@@ -51,6 +60,8 @@ const MultiActionAreaCard = () => {
       });
   }, []);
 
+  console.log(latestProjects);
+  console.log(otherProjects);
 
   const handleShowAllClick = () => {
     setSearchQuery("");
@@ -58,6 +69,27 @@ const MultiActionAreaCard = () => {
 
   return (
     <Container sx={{ my: 15 }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "22vh",
+          backgroundImage: `url(${bg})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          mb: 5,
+        }}
+      >
+        <Avatar
+          alt="Remy Sharp"
+          src={profile}
+          sx={{ width: 110, height: 110, my: 4, mx: 3 }}
+        />
+      </Box>
+
       <Typography
         variant="h1"
         sx={{ fontSize: 70, fontWeight: 700 }}
@@ -94,6 +126,34 @@ const MultiActionAreaCard = () => {
         searchQuery={searchQuery}
       />
 
+      {/* skills  */}
+      <Typography sx={{ fontSize: 40, fontWeight: 600, my: 5 }} color="white">
+        What I know
+      </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+        }}
+      >
+        <SkillCard
+          skill={"Frontend"}
+          skills={[
+            "HTML5",
+            "CSS3",
+            "JavaScript",
+            "React",
+            "Material-UI",
+            "Next.js",
+          ]}
+        />
+        <SkillCard skill={"Backend"} skills={["Node.js", "Express"]} />
+        <SkillCard skill={"Database"} skills={["MySQL", "MongoDB"]} />
+        <SkillCard skill={"DevOps"} skills={["Git"]} />
+      </Box>
+
       {/* Display Other Projects */}
       <Typography
         variant="h2"
@@ -103,7 +163,7 @@ const MultiActionAreaCard = () => {
         My Other Projects...
       </Typography>
 
-      <ProjectDisplay
+      <ProjectOtherDisplay
         allProjects={otherProjects}
         handleClickOpen={handleClickOpen}
         searchQuery={searchQuery}

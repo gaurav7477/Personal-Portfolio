@@ -14,7 +14,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, onShowAllClick }) => {
         variant="contained"
         color="primary"
         onClick={onShowAllClick}
-        sx={{ marginTop: 2 }}
+        sx={{ ml: 7,my:3}}
       >
         Show All Projects
       </Button>
