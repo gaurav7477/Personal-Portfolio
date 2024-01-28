@@ -8,20 +8,18 @@ import Contact from "./Pages/Contact/Contact";
 import Footer from "./Pages/Home/Footer.jsx";
 const App = () => {
   return (
-    <div><Navbar />
-    <Router>
-      
-      <Routes>
-        <Route path="/" element={<Home />} index />
-        <Route path="/home" element={<Home />} />
-        <Route path="/projects" element={<Project />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-
-      </Routes>
-      
-    </Router>
-    <Footer/>
+    <div>
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} index />
+          <Route path="/home" element={<Home />} />
+          <Route path="/projects" element={<Project />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
+      <Footer />
     </div>
   );
 };

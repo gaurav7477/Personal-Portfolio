@@ -5,18 +5,24 @@ import Typography from "@mui/material/Typography";
 
 const SkillCard = ({ skill, skills }) => {
   return (
-    <Card sx={{ width: 200, margin: 2 }}>
-      <Typography
-        variant="h6"
-        sx={{  fontWeight: 600, mx: 2 }}
-      >
+    <Card
+      sx={{
+        width: { xs: 200, md: "20%" },
+        mt: 2,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        p: 1,
+      }}
+    >
+      <Typography variant="h6" sx={{ fontWeight: 600, mx: 2 }}>
         {skill}
       </Typography>
       <CardContent
         sx={{
           display: "flex",
           flexDirection: "column",
-          justifyContent:"center",
+          justifyContent: "center",
           alignItems: "flex-start",
         }}
       >

@@ -45,10 +45,8 @@ const ProjectDisplay = ({ allProjects, handleClickOpen, searchQuery }) => {
                 </Typography>
 
                 {/* Map over the technology array */}
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary" sx={{ my: 2 }}>
-                    Tech Stack
-                  </Typography>
+                <Box sx={{mt:2}}>
+                  
                   {project.technology.map((tech, techIndex) => (
                     <Chip key={techIndex} label={tech} size="small" sx={{ mr: 1, mb: 1 }} />
                   ))}

@@ -1,24 +1,23 @@
 import React from "react";
+import { useState } from "react";
 import {
   AppBar,
-  Avatar,
   Box,
   Container,
   Link,
   Menu,
   Toolbar,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
 import { MenuItem } from "@mui/material";
+
+import MenuComponent from "./MenuComponent.jsx";
 const Navbar = () => {
   const pages = ["Home", "About", "Contact", "Projects"];
-  const settings = ["Profile", "Account","Contact Me"];
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -27,35 +26,29 @@ const Navbar = () => {
     setAnchorElNav(null);
   };
 
-  const handleOpenUserMenu = (e)=> {
-    setAnchorElUser(e.currentTarget);
-  }
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  }
 
   return (
-    <AppBar position="fixed" sx={{bgcolor:"black"}}>
-      <Container maxWidth="xl" sx={{color:'white'}}>
+    <AppBar position="fixed" sx={{ bgcolor: "black" }}>
+      <Container maxWidth="xl" sx={{ color: "white" }}>
         <Toolbar sx={{ display: { md: "flex" } }}>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home"
             sx={{
               flexGrow: 1,
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            GB
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -86,7 +79,12 @@ const Navbar = () => {
               sx={{ display: { xs: "Block", md: "none" } }}
             >
               {pages.map((page) => (
-                <Link key={page} href={`${page}`} underline="none" color="inherit">
+                <Link
+                  key={page}
+                  href={`${page}`}
+                  underline="none"
+                  color="inherit"
+                >
                   <MenuItem onClick={handleCloseNavMenu}>{page}</MenuItem>
                 </Link>
               ))}
@@ -97,7 +95,7 @@ const Navbar = () => {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -109,7 +107,7 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            GB
           </Typography>
 
           <Box
@@ -137,48 +135,7 @@ const Navbar = () => {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-            {settings.map((setting) => (
-              <Link
-              onClick={handleCloseUserMenu}
-                key={setting}
-                href={`#${setting}`}
-                underline="none"
-                color="inherit"
-                sx={{
-                  display: "block",
-                  fontWeight: 700,
-                  fontFamily: "monospace",
-                  letterSpacing: ".1rem",
-                  textDecoration: "none",
-                }}
-              >
-                {setting}
-              </Link>
-            ))}
-            </Menu>
-          </Box>
+          <MenuComponent />
         </Toolbar>
       </Container>
     </AppBar>

@@ -9,86 +9,106 @@ import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
+import XIcon from "@mui/icons-material/X";
 const ColoredText = styled("span")({
-  color: "green",
+  color: "#3ccf91",
 });
 
 const Footer = () => {
   return (
-    
     <Card sx={{ mt: 20 }}>
-    <CardContent>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Typography
-          variant="h5"
-          gutterBottom
-          sx={{ fontSize: 32, my: 2, fontWeight: 600 }}
+      <CardContent>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
         >
-          Keep In Touch
-        </Typography>
-        <Typography variant="body1" paragraph>
-          {" "}
-          I'm currently specializing in{" "}
-          <ColoredText>Backend-end Development.</ColoredText>
-          <br />
-          Feel free to get in touch and talk more about your projects.
-        </Typography>
-        <Stack
-          spacing={4}
-          direction="row"
-          sx={{ my: 5, alignItems: "center" }}
-        >
-          <Button
-            variant="text"
-            startIcon={<GitHubIcon style={{ color: "green" }} />}
-            style={{ color: "white" }}
-            sx={{
-              "&:hover": { backgroundColor: "darkgray" },
-              fontWeight: 600,
-            }}
+          <Typography
+            variant="h4"
+            gutterBottom
           >
-            Github
-          </Button>
-          <Button
-            variant="text"
-            startIcon={<LinkedInIcon style={{ color: "green" }} />}
-            style={{ color: "white" }}
-            sx={{
-              "&:hover": { backgroundColor: "darkgray" },
-              fontWeight: 600,
-            }}
+            Keep In Touch
+          </Typography>
+          <Typography sx={{width:"40%",textAlign:"center"}}>
+            {" "}
+            I'm currently specializing in{" "}
+            <ColoredText>Backend-end Development.</ColoredText>
+            Feel free to get in touch and talk more about your projects.
+          </Typography>
+          <Stack
+            spacing={4}
+            direction="row"
+            sx={{ my: 5, justifyContent: "center" }}
           >
-            LinkedIn
-          </Button>
-          <Button
-            variant="text"
-            startIcon={<EmailIcon style={{ color: "green" }} />}
-            style={{ color: "white" }}
-            sx={{
-              "&:hover": { backgroundColor: "darkgray" },
-              fontWeight: 600,
-            }}
-          >
-            Email
-          </Button>
-        </Stack>
-        <Typography variant="body1" paragraph>
-          {" "}
-          Designed and Developed by{" "}
-          <ColoredText>Gaurav Bairagi.</ColoredText>
-          <br />
-          Built with React js & Material UI. Hosted on Vercel.
-        </Typography>
-      </Box>
-    </CardContent>
-  </Card>
-  )
-}
+            <Button
+              variant="text"
+              startIcon={<GitHubIcon style={{ color: "#3ccf91" }} />}
+              style={{ color: "white" }}
+              sx={{
+                "&:hover": { backgroundColor: "darkgray" },
+                fontWeight: 600,
+              }}
+              onClick={() => {
+                window.open("https://github.com/gaurav7477");
+                // https://twitter.com/GruB7477
+              }}
+            >
+              Github
+            </Button>
 
-export default Footer
+            <Button
+              variant="text"
+              startIcon={<LinkedInIcon style={{ color: "#3ccf91" }} />}
+              style={{ color: "white" }}
+              sx={{
+                "&:hover": { backgroundColor: "darkgray" },
+                fontWeight: 600,
+              }}
+              onClick={() => {
+                window.open("https://www.linkedin.com/in/gaurav-bairagi/");
+              }}
+            >
+              LinkedIn
+            </Button>
+            <Button
+              variant="text"
+              startIcon={<EmailIcon style={{ color: "#3ccf91" }} />}
+              style={{ color: "white" }}
+              sx={{
+                "&:hover": { backgroundColor: "darkgray" },
+                fontWeight: 600,
+              }}
+              onClick={() => {
+                window.open("mailto:bairagi7477@mail.com");
+              }}
+            >
+              Email
+            </Button>
+            <Button
+              variant="text"
+              startIcon={<XIcon style={{ color: "#3ccf91" }} />}
+              style={{ color: "white" }}
+              sx={{
+                "&:hover": { backgroundColor: "darkgray" },
+                fontWeight: 600,
+              }}
+              onClick={() => {
+                window.open("https://twitter.com/GruB7477");
+              }}
+            >
+              Twitter
+            </Button>
+          </Stack>
+          <Typography sx={{width:"40%",textAlign:"center"}}>
+            {" "}
+            Designed and Developed by <ColoredText>Gaurav Bairagi.</ColoredText>
+            Built with React js & Material UI. Hosted on Vercel.
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default Footer;

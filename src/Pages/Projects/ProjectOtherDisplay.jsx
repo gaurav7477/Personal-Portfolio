@@ -21,6 +21,8 @@ const ProjectDisplay = ({ allProjects, handleClickOpen, searchQuery }) => {
     <Box
       sx={{
         display: "flex",
+        flexDirection: {xs: "column", md: "row"},
+        alignItems: {xs: "center", md: "flex-start"},
         justifyContent: {xs: "center", md: "space-around"},
         flexWrap: "wrap",
       }}
@@ -28,35 +30,41 @@ const ProjectDisplay = ({ allProjects, handleClickOpen, searchQuery }) => {
 
     >
       {filteredProjects.map((project, index) => (
-        <Box
-        sx={{
-          p:2
-        }}
-        key={index}>
-          <Card sx={{ width: 200 }}>
-            <CardActionArea onClick={() => handleClickOpen(project)} target="_blank">
-              <CardMedia component="img" height="80" image={project.image} alt={project.title} />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div" sx={{fontSize:15}}>
+        
+          <Card key={index} sx={{ maxWidth: {xs:"80%",md:"45%"},p:1,m:2 }}>
+            <CardActionArea sx={{display:"flex",
+            flexDirection: {xs: "column", sm: "row"},
+          }} onClick={() => handleClickOpen(project)} target="_blank">
+
+              <CardMedia component="img" sx={{width:"35%"}} image={project.image} alt={project.title} />
+
+              <CardContent
+                sx={{
+                  display:"flex",
+                  flexDirection: "column",
+                  height: "230px"
+                }}
+              >
+                <Typography gutterBottom variant="h5" component="div" >
                   {project.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{fontSize:10}}>
+                <Typography variant="body2" color="text.secondary" >
                   {project.smallDescription}
                 </Typography>
 
                 {/* Map over the technology array */}
-                <Box>
-                  <Typography variant="subtitle2" color="text.secondary" sx={{ my: 2 }}>
-                    Tech Stack
-                  </Typography>
+                <Box sx={{
+                  mt:2,
+                  justifySelf:"flex-end",
+                  }}>
                   {project.technology.map((tech, techIndex) => (
                     <Chip key={techIndex} label={tech} size="small" sx={{ mr: 1, mb: 1 }} />
                   ))}
                 </Box>
               </CardContent>
+
             </CardActionArea>
           </Card>
-        </Box>
       ))}
     </Box>
   );

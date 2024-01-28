@@ -8,7 +8,6 @@ import ProjectDialog from "./ProjectDialog";
 import { Box } from "@mui/system";
 import bg from "../../images/cover.jpeg";
 import profile from "../../images/abt.jpg";
-import SkillCard from "./skillCard.jsx";
 
 const MultiActionAreaCard = () => {
   const [latestProjects, setLatestProjects] = useState([]);
@@ -126,40 +125,8 @@ const MultiActionAreaCard = () => {
         searchQuery={searchQuery}
       />
 
-      {/* skills  */}
-      <Typography sx={{ fontSize: 40, fontWeight: 600, my: 5 }} color="white">
-        What I know
-      </Typography>
-
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-        }}
-      >
-        <SkillCard
-          skill={"Frontend"}
-          skills={[
-            "HTML5",
-            "CSS3",
-            "JavaScript",
-            "React",
-            "Material-UI",
-            "Next.js",
-          ]}
-        />
-        <SkillCard skill={"Backend"} skills={["Node.js", "Express"]} />
-        <SkillCard skill={"Database"} skills={["MySQL", "MongoDB"]} />
-        <SkillCard skill={"DevOps"} skills={["Git"]} />
-      </Box>
-
       {/* Display Other Projects */}
-      <Typography
-        variant="h2"
-        sx={{ fontSize: 40, fontWeight: 600, mt: 7, mb: 3 }}
-        color="white"
-      >
+      <Typography variant="h4" color="white">
         My Other Projects...
       </Typography>
 
