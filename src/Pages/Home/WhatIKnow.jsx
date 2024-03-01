@@ -32,10 +32,12 @@ function WhatIKnow() {
             "JavaScript",
             "React",
             "Material-UI",
+            "Tailwind CSS",
+            "TypeScript",
             "Next.js",
           ]}
         />
-        <SkillCard skill={"Backend"} skills={["Node.js", "Express"]} />
+        <SkillCard skill={"Backend"} skills={["Node.js", "Express","Sanity","AppWrite"]} />
         <SkillCard skill={"Database"} skills={["MySQL", "MongoDB"]} />
         <SkillCard skill={"DevOps"} skills={["Git"]} />
       </Box>
