@@ -30,7 +30,7 @@ const Footer = () => {
           >
             Keep In Touch
           </Typography>
-          <Typography sx={{width:"40%",textAlign:"center"}}>
+          <Typography sx={{width:{xs:"100%",md:"60%",xl:"40%"},textAlign:"center"}}>
             {" "}
             I'm currently specializing in{" "}
             <ColoredText>Backend-end Development.</ColoredText>
@@ -100,7 +100,7 @@ const Footer = () => {
               Twitter
             </Button>
           </Stack>
-          <Typography sx={{width:"40%",textAlign:"center"}}>
+          <Typography sx={{width:{xs:"100%",md:"60%",xl:"40%"},textAlign:"center"}}>
             {" "}
             Designed and Developed by <ColoredText>Gaurav Bairagi.</ColoredText>
             Built with React js & Material UI. Hosted on Vercel.

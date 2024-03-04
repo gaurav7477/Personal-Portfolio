@@ -3,7 +3,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Avatar, Container } from "@mui/material";
 import styled from "@emotion/styled";
-
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import DownloadIcon from '@mui/icons-material/Download';
 import aboutImg from "../../images/abt.jpg";
 
 const ColoredText = styled("span")({
@@ -14,7 +16,7 @@ const About = () => {
   return (
     <Container
       sx={{
-        height: "75vh",
+        height: "100vh",
         mt: 20,
         display: "flex",
         alignItems: "flex-start",
@@ -42,14 +44,37 @@ const About = () => {
           a tech product, I've got the skills to bring it to life. I'm
           proficient in{" "}
           <ColoredText>
-            JavaScript, React.js, Node.js, Express.js, CSS, and Data Structures
-            and Algorithms
+            JavaScript, React.js, Redux, Node.js, Express.js, MongoDB, Tailwind CSS,
+            and Data Structures and Algorithms
           </ColoredText>
           (DSA), ensuring your online presence stands out. I specialize in
           creating user-friendly interfaces, building strong APIs, and
           seamlessly integrating external services to enhance your digital
           presence.
+          I'm enthusiastic about the opportunity and eager to learn and grow with your company.  
         </Typography>
+
+        <Stack
+          spacing={4}
+          direction="row"
+        >
+          <Button
+            variant="text"
+            startIcon={<DownloadIcon style={{ color: "#3ccf91" }} />}
+            style={{ color: "white" }}
+            sx={{
+              "&:hover": { backgroundColor: "darkgray" },
+              fontWeight: 600,
+            }}
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1HvZQO-q4ZFpbnCIqq-F2iPPU8blJejML/view"
+              );
+            }}
+          >
+            My Resume
+          </Button>
+        </Stack>
       </Box>
 
       <Avatar
@@ -58,6 +83,7 @@ const About = () => {
           height: "calc(100vh/2)",
           borderRadius: "50%",
           ml: 4,
+          mt: 8,
           objectFit: "cover",
         }}
         src={aboutImg}

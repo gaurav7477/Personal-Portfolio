@@ -6,6 +6,7 @@ import Project from "./Pages/Projects/project";
 import About from "./Pages/Home/About";
 import Contact from "./Pages/Contact/Contact";
 import Footer from "./Pages/Home/Footer.jsx";
+import NotFoundPage from "./Pages/Home/NotFoundPage";
 const App = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/projects" element={<Project />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Router>
       <Footer />

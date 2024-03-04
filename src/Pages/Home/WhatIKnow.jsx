@@ -4,7 +4,12 @@ import SkillCard from "../Projects/skillCard";
 
 function WhatIKnow() {
   return (
-    <Container>
+    <Container
+    sx={{
+      height: "75vh",
+      mt: {xs:"70vh",md:"5vh",lg:"-10vh"},
+    }}
+    >
       {/* 
       //TODO: Make profile database and fetch Skills from there 
       */}

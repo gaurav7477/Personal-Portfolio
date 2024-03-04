@@ -21,7 +21,7 @@ const Home = () => {
       <Box
         sx={{
           height: "75vh",
-          mt: "20vh",
+          mt: { xs: "35vh", md: "20" },
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
