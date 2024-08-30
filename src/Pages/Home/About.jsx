@@ -68,7 +68,7 @@ const About = () => {
             }}
             onClick={() => {
               window.open(
-                "https://drive.google.com/file/d/1HvZQO-q4ZFpbnCIqq-F2iPPU8blJejML/view"
+                "https://drive.google.com/file/d/1NQ-h2wzF7MfCSIXu7vCnEIKdAuVCrg2k/view?usp=sharing"
               );
             }}
           >
